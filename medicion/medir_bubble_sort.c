@@ -4,7 +4,7 @@
 #include <sys/time.h>
 #include <locale.h>
 
-//Probemos de Algoritmo de Ordenamiento Bubble Sort
+//Probemos de Algoritmo de Ordenamiento "Bubble Sort"
 
 #define N 1000000
 
