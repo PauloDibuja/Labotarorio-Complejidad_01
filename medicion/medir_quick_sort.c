@@ -24,7 +24,7 @@ int main(){
 	char *forma_datos[3] = {"Ordenado", "Inverso", "Aleatorio"};
 	char *data_files[3] = {"ascendente.txt", "descendente.txt", "aleatorio.txt"};
 
-	struct timeval tf_0, tf_1;
+	struct timeval tf_0, tf_1; //Comentairo
 	
 	
 
