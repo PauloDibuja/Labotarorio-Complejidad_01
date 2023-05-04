@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
-#include <locale.h>
 
 //Probemos de Algoritmo de Ordenamiento Bubble Sort
 
@@ -13,22 +12,26 @@ void Bubble_Sort(int arr[], int size);
 void Inicializar_Arreglo(int arr[], int size, const char *filename);
 
 int main(){
-	setlocale(LC_ALL, "");
+
 
 	struct timeval t_0, t_1;
+	struct timeval tf_0, tf_1;
+	
+	gettimeofday(&tf_0, NULL);
+
 	int arr[N];
 	FILE *resultados;
 	double time_elapsed;
 
 	//Leer archivo de datos y guardar los datos en un array de enteros
 
-	Inicializar_Arreglo(arr, N, "datos/aleatorio.txt");
+	Inicializar_Arreglo(arr, N, "datos/descendente.txt");
 
-	resultados = fopen("resultados/bubble_sort.csv", "wt");
+	resultados = fopen("resultados/bubble_sort_invertido.csv", "wt");
 
 	char so[] = "Linux";
 	char algoritmo[] = "Bubble Sort";
-	char forma_datos[] = "Aleatorio";
+	char forma_datos[] = "Invertido";
 
 	printf("S.0;%s\n", so);
 	fprintf(resultados, "S.0;%s\n", so);
@@ -41,7 +44,7 @@ int main(){
 
 	fprintf(resultados, "Elementos;Tiempo\n");
 
-	for (int size_part = 10000; size_part < 200000; size_part += 10000)
+	for (int size_part = 10000; size_part < N; size_part += 10000)
 	{
 		gettimeofday(&t_0, NULL);
 		Bubble_Sort(arr, size_part);
@@ -53,6 +56,11 @@ int main(){
 	
 	fclose(resultados);
 
+	gettimeofday(&tf_1, NULL);
+
+	double execution_time = (tf_1.tv_sec - tf_0.tv_sec)*1000 + (tf_1.tv_usec - tf_0.tv_usec)/1000;
+	printf("Fin de ejecución.\n");
+	printf("Tiempo de ejecución: %g segundos", execution_time/1000);
 	return 0;
 }
 
