@@ -12,6 +12,8 @@ void Bubble_Sort(int arr[], int size);
 
 void Inicializar_Arreglo(int arr[], int size, const char *filename);
 
+//lol
+
 int main(){
 	setlocale(LC_ALL, "");
 
